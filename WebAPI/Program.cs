@@ -59,45 +59,45 @@ builder.Services.AddDependencyResolvers(new ICoreModule[] {
 builder.Services.AddEndpointsApiExplorer();
 
 ///////////Swagger//////
-builder.Services.AddSwaggerGen();
+//builder.Services.AddSwaggerGen();
 
-// builder.Services.AddSwaggerGen(c =>
-//{
-//    c.SwaggerDoc("v1", new OpenApiInfo
-//    {
-//        Version = "v1",
-//        Title = "ParamTask Api Swagger",
-//        Description = "ParamTask  Api Swagger Documentation",
-//        TermsOfService = new Uri("http://swagger.io/terms/"),
-//        Contact = new OpenApiContact
-//        {
-//            Name = "Onur ÖZDEMÝR",
-//            Email = "ozdmronurr@gmail.com"
-//        }
-//    });
-//    // Set the comments path for the Swagger JSON and UI.
-//    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-//    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-//    c.IncludeXmlComments(xmlPath);
-//    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-//    {
-//        In = ParameterLocation.Header,
-//        Description = "Token Insert!",
-//        Type = SecuritySchemeType.Http,
-//        BearerFormat = "JWT",
-//        Scheme = "bearer"
+builder.Services.AddSwaggerGen(c =>
+{
+   c.SwaggerDoc("v1", new OpenApiInfo
+   {
+       Version = "v1",
+       Title = "ParamTask Api Swagger",
+       Description = "ParamTask  Api Swagger Documentation",
+       TermsOfService = new Uri("http://swagger.io/terms/"),
+       Contact = new OpenApiContact
+       {
+           Name = "Onur ÖZDEMÝR",
+           Email = "ozdmronurr@gmail.com"
+       }
+   });
+    // Set the comments path for the Swagger JSON and UI.
+   var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+   var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+   c.IncludeXmlComments(xmlPath);
+   c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+   {
+       In = ParameterLocation.Header,
+       Description = "Token Insert!",
+       Type = SecuritySchemeType.Http,
+       BearerFormat = "JWT",
+       Scheme = "bearer"
 
-//    });
-//    c.AddSecurityRequirement(new OpenApiSecurityRequirement{
-//        { new OpenApiSecurityScheme{
-//            Reference=new OpenApiReference{
-//                Type=ReferenceType.SecurityScheme,
-//    Id="bearer"}
-//        },new string[]{ }
-//        }
+   });
+   c.AddSecurityRequirement(new OpenApiSecurityRequirement{
+        { new OpenApiSecurityScheme{
+            Reference=new OpenApiReference{
+                Type=ReferenceType.SecurityScheme,
+    Id="bearer"}
+        },new string[]{ }
+        }
 
-//    }); ;
-//});
+   }); ;
+});
 
 
 
